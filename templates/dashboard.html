@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SimpleBank Dashboard</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; }
+        .container { max-width: 600px; margin: auto; }
+        .header { text-align: center; margin-bottom: 20px; }
+        .balance { font-size: 24px; margin: 20px 0; padding: 10px; background: #f0f0f0; }
+        .actions { display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; }
+        .action-form { display: inline-block; }
+        input[type="number"] { padding: 8px; width: 120px; }
+        button { padding: 10px 15px; cursor: pointer; }
+        .message { margin: 15px 0; padding: 10px; background: #e6f3ff; }
+        .logout { text-align: center; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Welcome, {{ name }}!</h1>
+            <div class="balance">Balance: ${{ "%.2f"|format(balance) }}</div>
+        </div>
+
+        {% if message %}
+            <div class="message">{{ message }}</div>
+        {% endif %}
+
+        <div class="actions">
+            <form class="action-form" method="POST">
+                <input type="hidden" name="action" value="deposit">
+                <input type="number" name="amount" step="0.01" min="0.01" placeholder="Amount" required>
+                <button type="submit">Deposit</button>
+            </form>
+
+            <form class="action-form" method="POST">
+                <input type="hidden" name="action" value="withdraw">
+                <input type="number" name="amount" step="0.01" min="0.01" placeholder="Amount" required>
+                <button type="submit">Withdraw</button>
+            </form>
+        </div>
+
+        <div class="logout">
+            <a href="{{ url_for('logout') }}">Log Out</a>
+        </div>
+    </div>
+</body>
+</html>
