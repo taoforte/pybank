@@ -6,6 +6,3 @@ A simple banking application or finance tracker built with Python.
 - Account creation
 - Deposit and withdrawal
 - Balance tracking
-- Account creation
-- Deposit and withdrawal
-- Balance tracking
