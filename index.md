@@ -8,7 +8,8 @@ A simple banking application or finance tracker built with Python.
 - Balance tracking
 - Transaction history
 
-## Sample dialog
+## Sample dialog UI
+
 <img src="https://www.taojai.com/wp-content/uploads/2025/12/image.png" alt="Screenshot" width="500"/>
 
 # pybank2
